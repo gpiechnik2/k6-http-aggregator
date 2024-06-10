@@ -27,7 +27,7 @@ type options struct {
 }
 
 func AppendJSONToFile(fileName string, jsonData http.Response) {
-	f, err := os.OpenFile(fileName, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0666)
+	f, err := os.OpenFile(fileName, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0o666)
 	check(err)
 	defer f.Close()
 
@@ -78,7 +78,6 @@ func formatDate(timeStamp time.Time) string {
 	// Define layout for formatting timestamp to string
 	// return timeStamp.Format("01-02-2006")
 	return timeStamp.Format("Mon, 02 Jan 2006")
-
 }
 
 // Map name formatDate to formatDate function above
